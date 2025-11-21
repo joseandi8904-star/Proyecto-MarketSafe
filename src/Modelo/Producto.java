@@ -8,6 +8,33 @@ package Modelo;
  *
  * @author ADMIN
  */
-public class Productos {
+public class producto {
+    public String idp;
+    public String nombre;
+    public float precio;
+    public String imagen;
+    public int cantidad;
+    public String descripcion;
+    public String categoria;
+
+    public producto(String idp, String nombre, float precio, String imagen, int cantidad) {
+        this.idp = idp;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.cantidad = cantidad;
+    }
+
+    public producto(String idp, String nombre, float precio, String imagen, int cantidad, String descripcion, String categoria) {
+        this.idp = idp;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+    }
+    
+    
     
 }

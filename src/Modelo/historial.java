@@ -4,10 +4,7 @@
  */
 package Modelo;
 
-/**
- *
- * @author ADMIN
- */
+
 public class historial {
     public String id;
     public String fecha;

@@ -4,10 +4,7 @@
  */
 package Modelo;
 
-/**
- *
- * @author ADMIN
- */
+
 public class producto {
     public String idp;
     public String nombre;

@@ -8,6 +8,6 @@ package Controladores;
  *
  * @author ADMIN
  */
-public class Usuarios {
+public class NewClass {
     
 }

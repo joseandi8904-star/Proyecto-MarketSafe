@@ -4,10 +4,7 @@
  */
 package Modelo;
 
-/**
- *
- * @author ADMIN
- */
+
 public class Nodo_LS<T> {
     public T dato;
     public Nodo_LS <T> sig;

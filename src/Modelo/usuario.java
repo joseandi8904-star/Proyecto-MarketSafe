@@ -4,10 +4,7 @@
  */
 package Modelo;
 
-/**
- *
- * @author ADMIN
- */
+
 public class usuario {
     public String correo;
     public String contraseña;

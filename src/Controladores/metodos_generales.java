@@ -6,8 +6,8 @@ package Controladores;
 
 /**
  *
- * @author ADMIN
+ * @author samue
  */
-public class Usuarios {
+public class metodos_generales {
     
 }

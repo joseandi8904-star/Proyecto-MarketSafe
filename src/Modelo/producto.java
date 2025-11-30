@@ -29,7 +29,7 @@ public class producto {
         this.imagen = imagen;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
-        this.descripcion = categoria;
+        this.categoria = categoria;
     }
     
     

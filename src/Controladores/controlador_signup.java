@@ -4,8 +4,7 @@
  */
 package Controladores;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import Modelo.usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,50 +20,58 @@ import javafx.scene.control.TextField;
  * FXML Controller class
  *
  */
-public class controlador_login implements Initializable {
+public class controlador_signup implements Initializable {
 
     @FXML
     private TextField email;
     @FXML
-    private PasswordField password;
+    private PasswordField contraseña;
     @FXML
-    private Button ingresar;
+    private Button crear;
+    @FXML
+    private TextField nombres;
+    @FXML
+    private TextField apellidos;
     
     private metodos_generales modelo;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    
     }    
 
     @FXML
-    private void iniciar(ActionEvent event) throws IOException {
-        String em = email.getText();
-        String pas = password.getText();
-        modelo.actual=modelo.ConsultarArchivo("src/Archivos/usuarios.txt",em,pas);
-        if (modelo.actual!=null){
+    private void creacionCuenta(ActionEvent event) throws IOException {
+        String mail, n, lastn, pass, id;
+        mail=email.getText();
+        n=nombres.getText();
+        lastn=apellidos.getText();
+        pass=contraseña.getText();
+        id=modelo.generarIDUnico(modelo.obtenerIDsExistentes("src/Archivos/usuarios.txt"), "usuario");
+        modelo.actual=modelo.guardarDatos(mail, pass, n, lastn, id);
+        if(modelo.actual!=null){
             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
             alerta.setHeaderText(null);
             alerta.setTitle("Exito");
-            alerta.setContentText("iniciando sesion");
+            alerta.setContentText("Bienvenido "+n+" "+lastn);
             alerta.showAndWait();
             modelo.cargarFavoritos(modelo.actual.idu);
-            
+          
         }else{
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText(null);
             alerta.setTitle("Error");
-            alerta.setContentText("Usuario/Contraseña incorrecta");
+            alerta.setContentText("Correo en uso");
             alerta.showAndWait();
         }
     }
     
     public void ModeloCompartido(metodos_generales modelo) {
         this.modelo = modelo;
-    }   
+    }
 
     @FXML
     private void volver(ActionEvent event) {
         
     }
-    
 }

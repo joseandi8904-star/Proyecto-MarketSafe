@@ -20,10 +20,21 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
-
-
+/**
+ *
+ */
 public class metodos_generales {
     
     public metodos_generales(){ 
@@ -35,6 +46,44 @@ public class metodos_generales {
     }
     
     usuario actual;
+    
+    public void cambioventana (String direccion, ActionEvent evento, metodos_generales modelo){
+        try {
+        Window ventana=null;
+        Object eventSource = evento.getSource();
+        if(eventSource instanceof Node){
+        Node nodo = (Node)eventSource;
+        Scene old = nodo.getScene();
+        ventana = old.getWindow();
+        }else if(eventSource instanceof MenuItem){
+                MenuItem item = (MenuItem)eventSource;
+                ventana = item.getParentPopup().getOwnerWindow();
+                }
+        
+        Stage stage = (Stage)ventana;
+        stage.hide();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(direccion));
+        Parent root = loader.load();
+        Object controlador = loader.getController();
+        
+        if (controlador instanceof controlador_principal) {
+            ((controlador_principal) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_login) {
+            ((controlador_login) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_signup) {
+            ((controlador_signup) controlador).ModeloCompartido(modelo);
+        }
+        
+        Scene scene = new Scene(root);
+        Stage nueva = new Stage();
+        nueva.setScene(scene);
+        nueva.show();
+        } catch (IOException ex) {
+            Logger.getLogger(controlador_principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
     public usuario ConsultarArchivo(String ubicacion, String usuario, String pass) {
     try (BufferedReader reader = new BufferedReader(new FileReader(ubicacion))) {
@@ -381,7 +430,8 @@ public class metodos_generales {
     return nuevoID;
 }
     
-
+    //Metodos lista doble
+    
     public Nodo_LD<producto> cab_f;
     
     
@@ -568,7 +618,8 @@ public class metodos_generales {
 
     }
     
-
+    //Metodos para colas
+    
     public Nodo_LS<producto> tope_c;
     
     public boolean CarritoVacio(){ 

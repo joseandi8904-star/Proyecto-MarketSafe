@@ -5,16 +5,27 @@
 package Controladores;
 
 import Modelo.usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 /**
  * FXML Controller class
@@ -35,9 +46,12 @@ public class controlador_signup implements Initializable {
     
     private metodos_generales modelo;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+        // TODO
     }    
 
     @FXML
@@ -56,7 +70,7 @@ public class controlador_signup implements Initializable {
             alerta.setContentText("Bienvenido "+n+" "+lastn);
             alerta.showAndWait();
             modelo.cargarFavoritos(modelo.actual.idu);
-          
+            modelo.cambioventana("/Vistas/vista_usuario.fxml", event,this.modelo);
         }else{
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText(null);
@@ -64,14 +78,17 @@ public class controlador_signup implements Initializable {
             alerta.setContentText("Correo en uso");
             alerta.showAndWait();
         }
+        
     }
     
     public void ModeloCompartido(metodos_generales modelo) {
-        this.modelo = modelo;
-    }
+    this.modelo = modelo;
+}
 
     @FXML
     private void volver(ActionEvent event) {
-        
+        modelo.cambioventana("/Vistas/vista_principal.fxml", event, this.modelo);
     }
+    
+    
 }

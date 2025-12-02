@@ -64,7 +64,7 @@ public class controlador_principal implements Initializable {
     
     @FXML
     private void entrar(ActionEvent event) throws IOException{
-        System.out.println("Botón Entrar presionado");
+        modelo.cambioventana("/Vistas/vista_login.fxml", event,this.modelo);
     }
     
     @FXML
@@ -94,7 +94,7 @@ public class controlador_principal implements Initializable {
         homecatalogo.getChildren().clear();
         List<producto> productosPagina = modelo.obtenerProductosPagina(inicio, ELEMENTOS_POR_PAGINA);
         
-        // Por ahora solo mostramos los nombres en consola
+       
         for (producto prod : productosPagina) {
             System.out.println("Producto: " + prod.nombre + " - $" + prod.precio);
           

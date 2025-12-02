@@ -9,13 +9,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 /**
  * FXML Controller class
@@ -23,6 +32,9 @@ import javafx.scene.control.TextField;
  */
 public class controlador_login implements Initializable {
 
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private TextField email;
     @FXML
@@ -42,29 +54,29 @@ public class controlador_login implements Initializable {
         String pas = password.getText();
         modelo.actual=modelo.ConsultarArchivo("src/Archivos/usuarios.txt",em,pas);
         if (modelo.actual!=null){
-            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-            alerta.setHeaderText(null);
-            alerta.setTitle("Exito");
-            alerta.setContentText("iniciando sesion");
-            alerta.showAndWait();
-            modelo.cargarFavoritos(modelo.actual.idu);
-            
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setHeaderText(null);
+        alerta.setTitle("Exito");
+        alerta.setContentText("iniciando sesion");
+        alerta.showAndWait();
+        modelo.cargarFavoritos(modelo.actual.idu);
+        modelo.cambioventana("/Vistas/vista_usuario.fxml", event,this.modelo);
         }else{
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText(null);
-            alerta.setTitle("Error");
-            alerta.setContentText("Usuario/Contraseña incorrecta");
-            alerta.showAndWait();
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setHeaderText(null);
+        alerta.setTitle("Error");
+        alerta.setContentText("Usuario/Contraseña incorrecta");
+        alerta.showAndWait();
         }
     }
     
     public void ModeloCompartido(metodos_generales modelo) {
-        this.modelo = modelo;
-    }   
+    this.modelo = modelo;
+}   
 
     @FXML
     private void volver(ActionEvent event) {
-        
+        modelo.cambioventana("/Vistas/vista_principal.fxml", event, this.modelo);
     }
     
 }

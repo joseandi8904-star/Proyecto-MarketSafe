@@ -8,6 +8,6 @@ package Controladores;
  *
  * @author samue
  */
-public class metodos_generales {
+public class controlador_admin {
     
 }

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="581.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controladores.controlador_signup">
+
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="577.0"
+                  style="-fx-background-color: #ffdddd;">
+         <children>
+
+            <!-- CONTENEDOR BLANCO DEL FORMULARIO -->
+            <AnchorPane layoutX="175.0" layoutY="10.0" prefHeight="407.0" prefWidth="361.0"
+                        style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #c40000;">
+               <children>
+
+                  <TextField fx:id="email" layoutX="25.0" layoutY="214.0"
+                             prefHeight="32.0" prefWidth="311.0"
+                             promptText="ejemplo123@gmail.com" />
+
+                  <Label layoutX="24.0" layoutY="184.0" text="Email">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+
+                  <Label layoutX="23.0" layoutY="262.0" text="Contraseña">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+
+                  <PasswordField fx:id="contraseña" layoutX="25.0" layoutY="294.0"
+                                 prefHeight="32.0" prefWidth="311.0"
+                                 promptText="*********" />
+
+                  <!-- BOTON ROJO -->
+                  <Button fx:id="crear" layoutX="25.0" layoutY="348.0"
+                          mnemonicParsing="false" onAction="#creacionCuenta"
+                          prefHeight="32.0" prefWidth="311.0"
+                          style="-fx-background-color: #ff4a4a;"
+                          text="Crear cuenta" textAlignment="CENTER"
+                          textFill="WHITE">
+                     <font><Font size="14.0" /></font>
+                  </Button>
+
+                  <Label layoutX="22.0" layoutY="105.0" text="Apellidos">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+
+                  <Label layoutX="23.0" layoutY="22.0" text="Nombres">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+
+                  <TextField fx:id="nombres" layoutX="25.0" layoutY="53.0"
+                             prefHeight="32.0" prefWidth="311.0"
+                             promptText="name" />
+
+                  <TextField fx:id="apellidos" layoutX="25.0" layoutY="135.0"
+                             prefHeight="32.0" prefWidth="311.0"
+                             promptText="last name" />
+
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+
+   <!-- FONDO INFERIOR ROJO CLARO -->
+   <bottom>
+      <Pane prefHeight="58.0" prefWidth="643.0"
+            style="-fx-background-color: #ffdddd;"
+            BorderPane.alignment="CENTER" />
+   </bottom>
+
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+
+            <AnchorPane prefHeight="96.0" prefWidth="627.0">
+               <children>
+
+                  <!-- BARRA ROJA SUPERIOR -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0"
+                             fill="#ff4a4a"
+                             height="28.0" layoutX="-16.0" layoutY="68.0"
+                             stroke="#ff4a4a" strokeType="INSIDE"
+                             width="716.0" />
+
+                  <Button mnemonicParsing="false" onAction="#volver"
+                          style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="72.0" fitWidth="153.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/icono.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+               </children>
+            </AnchorPane>
+
+         </children>
+      </AnchorPane>
+   </top>
+
+</BorderPane>

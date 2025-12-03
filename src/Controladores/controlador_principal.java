@@ -10,18 +10,31 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
-
+/**
+ * FXML Controller class
+ *
+ */
 public class controlador_principal implements Initializable {
 
     @FXML
@@ -52,7 +65,7 @@ public class controlador_principal implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+        // TODO
         busqueda.textProperty().addListener((obs, oldVal, newVal) -> {
             if (!newVal.trim().isEmpty()) {
                 mostrarResultados(newVal.trim());
@@ -66,94 +79,93 @@ public class controlador_principal implements Initializable {
     private void entrar(ActionEvent event) throws IOException{
         modelo.cambioventana("/Vistas/vista_login.fxml", event,this.modelo);
     }
-    
     @FXML
     private void crear(ActionEvent event) throws IOException{
-        System.out.println("Botón Crear presionado");
+        modelo.cambioventana("/Vistas/vista_signup.fxml", event,this.modelo);
     }
 
     @FXML
     private void siguiente(ActionEvent event) {
         if (inicio + ELEMENTOS_POR_PAGINA < modelo.tamañoListaSen()) {
-            inicio += ELEMENTOS_POR_PAGINA;
-            cargarPagina();
-            System.out.println("Avanzando...");
-        }
+        inicio += ELEMENTOS_POR_PAGINA;
+        cargarPagina();
+        System.out.println("Avanzando...");
+    }
     }
 
     @FXML
     private void anterior(ActionEvent event) {
-        if (inicio >= ELEMENTOS_POR_PAGINA) {
-            inicio -= ELEMENTOS_POR_PAGINA;
-            cargarPagina();
-            System.out.println("Retrocediendo...");
-        }
+       if (inicio >= ELEMENTOS_POR_PAGINA) {
+        inicio -= ELEMENTOS_POR_PAGINA;
+        cargarPagina();
+        System.out.println("Retrocediendo...");
+    }
     }
     
     private void cargarPagina() {
-        homecatalogo.getChildren().clear();
-        List<producto> productosPagina = modelo.obtenerProductosPagina(inicio, ELEMENTOS_POR_PAGINA);
-        
-       
-        for (producto prod : productosPagina) {
-            System.out.println("Producto: " + prod.nombre + " - $" + prod.precio);
-          
-        }
+    homecatalogo.getChildren().clear();
+    List<producto> productosPagina = modelo.obtenerProductosPagina(inicio, ELEMENTOS_POR_PAGINA);
+    
+    for (producto prod : productosPagina) {
+        System.out.println("Producto: " + prod.nombre + " - $" + prod.precio);
+        // La carga visual de productos se implementará en commits posteriores
     }
+}
     
     public void ModeloCompartido(metodos_generales modelo) {
-        this.modelo = modelo;
-        modelo.antiduplicados();
-        cargarPagina(); 
-    }
+    this.modelo = modelo;
+    modelo.antiduplicados();
+    cargarPagina(); 
+}
 
     @FXML
     private void buscarcatalogo(KeyEvent event) {
-        String texto = busqueda.getText().toLowerCase();
-        resultados.getChildren().clear();
+    String texto = busqueda.getText().toLowerCase();
+    resultados.getChildren().clear();
 
-        Nodo_LS<producto> aux = modelo.cab_s;
-        while (aux != null) {
-            producto p = aux.dato;
-            if (p.nombre.toLowerCase().contains(texto)) {
-                Label resultado = new Label(p.nombre);
-                resultado.setStyle("-fx-padding: 5; -fx-font-size: 14px;");
-                resultados.getChildren().add(resultado);
-            }
-            aux = aux.sig;
+    Nodo_LS<producto> aux = modelo.cab_s;
+    while (aux != null) {
+        producto p = aux.dato;
+        if (p.nombre.toLowerCase().contains(texto)) {
+            Label resultado = new Label(p.nombre);
+            resultado.setStyle("-fx-padding: 5; -fx-font-size: 14px;");
+            resultados.getChildren().add(resultado);
         }
+        aux = aux.sig;
+    }
     }
 
     private void mostrarResultados(String texto) {
-        resultados.getChildren().clear();
-        boolean coincidencia = false;
+    resultados.getChildren().clear();
+    boolean coincidencia= false;
 
-        Nodo_LS<producto> existencias = modelo.cab_s;
-        while (existencias != null) {
-            if (existencias.dato.nombre.toLowerCase().contains(texto.toLowerCase())) {
-                coincidencia = true;
-                Label item = new Label(existencias.dato.nombre);
-                item.wrapTextProperty();
-                item.setStyle("-fx-cursor: hand; -fx-background-color: #f0f0f0; -fx-padding: 5;");
-                resultados.getChildren().add(item);
-            }
-            existencias = existencias.sig;
+    Nodo_LS <producto> existencias = modelo.cab_s;
+    while (existencias!=null) {
+        if (existencias.dato.nombre.toLowerCase().contains(texto.toLowerCase())) {
+            coincidencia=true;
+            Label item = new Label(existencias.dato.nombre);
+            item.wrapTextProperty();
+            item.setStyle("-fx-cursor: hand; -fx-background-color: #f0f0f0; -fx-padding: 5;");
+            resultados.getChildren().add(item);
         }
-
-        contenedor.setVisible(coincidencia);
-        contenedor.setManaged(coincidencia);
+        
+        existencias=existencias.sig;
     }
 
-    private void ocultarResultados() {
-        resultados.getChildren().clear();
-        contenedor.setVisible(false);
-        contenedor.setManaged(false);
-    }   
+    contenedor.setVisible(coincidencia);
+    contenedor.setManaged(coincidencia);
+}
+
+private void ocultarResultados() {
+    resultados.getChildren().clear();
+    contenedor.setVisible(false);
+    contenedor.setManaged(false);
+}   
 
     @FXML
     private void catalogo(ActionEvent event) {
         System.out.println("Botón Catálogo presionado");
-        
+        // Navegación pendiente
     }
     
 }

@@ -1,0 +1,5 @@
+juancho@gmail.com,Juan,Castillo,thormanuel,U1
+cuentica123@gmail.com,1234,prueba,cuenta,U2
+bcnatero@gmail.com,asd,benito,cantero,U3
+admin,123,error,error,U4
+kiugghwjdf,sdiubwe dygdh,pedro,negrete,U100

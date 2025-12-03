@@ -1,0 +1,11 @@
+P1,FULL GAMER SUIT,500,/Imagenes/Productos/combogamer.png,1,"Pc gamer con todos sus perifericos incluidos",Tecnologia
+P2,Audífonos Inalámbricos,60000,/Imagenes/Productos/audifonos.png,2,"audifonos totalmente funcionales con cargador incluido y cancelacion de ruido",Tecnologia
+P3,Reloj pulsera Festina datos digitales,45000,/Imagenes/Productos/reloj.jpg,3,"Reloj inteligente 115plus para niños, pulsera deportiva inteligente con Bluetooth 4,0 para iOS, Android, rastreador deportivo, reloj de pulsera táctil",Tecnologia
+P4,Botella Azul con Mango de Acero,20000,/Imagenes/Productos/botella.png,4,"Taza de hielo de café con aislamiento al vacío de acero inoxidable de 30 oz, taza con aislamiento 100% a prueba de fugas, botella de viaje con asa (azul)",Hogar
+P5,Auriculares electrónicos con cancelación de ruido,143000,/Imagenes/Productos/auriculares.jpg,5,"Auriculares inalámbricos E6S con cancelación de ruido, auriculares estéreo intrauditivos impermeables con estuche de carga con pantalla LED",Tecnologia
+P6,Kit Dermatológicamente Testeado,450000,/Imagenes/Productos/kit.png,6,"Kit de eliminación de verrugas y topo, etiqueta de piel automática indolora 3 en 1, herramienta de limpieza, cuidado de la piel facial, tratamiento de puntos de verrugas corporales para 1-4mm, belleza y salud",Cuidado personal
+P7,Ratón óptico logitech g305 lightpeed,199900,/Imagenes/Productos/mouse.jpg,7,"Ratón Logitech ratón ergonómico Original óptico 8000DPI 16,8 M Color LED personalizado 6 botones con cable accesorios para Juegos de Pc",Tecnologia
+P8,Refrigerador Puerta Francesa Elegante,700000,/Imagenes/Productos/refrigerador.png,8,"Nuevo 28 Cu. Pie. Refrigerador de puerta francesa de 4 puertas con compresor 21,5 para el hogar",Electrodomesticos
+P9,Maquinillas de afeitar eléctricas y cortadoras de cabello philips,269000,/Imagenes/Productos/rasuradora.jpg,9,"VGR 387 Afeitadora eléctrica en seco y húmedo para hombres, Afeitadora eléctrica rotativa para Barba, Kit de aseo, pantalla LCD recargable",Cuidado personal
+P10,iphone,550000,/Imagenes/Productos/Iphone.jpg,12,"pues un iphone",Tecnologia
+P100,iPhone16 pro max,6000000,/Imagenes/Productos/Iphone.jpg,14,"Celular Iphone totalmente nuevo. Bateria en perfecto estado con espacio para dos tarjetas sims",Tecnologia

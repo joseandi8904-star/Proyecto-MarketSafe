@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.controlador_compra">
+   <center>
+      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="378.0" style="-fx-background-color: #ffe5e5;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="401.0" prefWidth="357.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #c40000;">
+               <children>
+                  <TextField fx:id="address" layoutX="23.0" layoutY="177.0" prefHeight="32.0" prefWidth="311.0" promptText="Casa, apartamento, barrio" />
+                  <Label layoutX="22.0" layoutY="157.0" text="Direccion">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="283.0" text="N° de tarjeta">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField layoutX="23.0" layoutY="303.0" prefHeight="32.0" prefWidth="311.0" promptText="*********" />
+                  <Button fx:id="pago" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" onAction="#guardarpago" prefHeight="32.0" prefWidth="311.0" style="-fx-background-color: #ff4a4a;" text="Confirmar pago" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="22.0" layoutY="92.0" text="Email">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="22.0" text="Nombres">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="25.0" layoutY="42.0" prefHeight="32.0" prefWidth="311.0" promptText="name" />
+                  <TextField layoutX="23.0" layoutY="112.0" prefHeight="32.0" prefWidth="311.0" promptText="ejemplo123@gmail.com" />
+                  <Label layoutX="22.0" layoutY="220.0" text="Codigo postal">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="23.0" layoutY="240.0" prefHeight="32.0" prefWidth="311.0" promptText="000000" />
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <Pane prefHeight="58.0" prefWidth="367.0" style="-fx-background-color: #ff6b6b;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="96.0" prefWidth="547.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="96.0" prefWidth="335.0">
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/Iconos/icono.png" />
+                     </image>
+                  </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff4a4a" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#c40000" strokeType="INSIDE" width="396.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

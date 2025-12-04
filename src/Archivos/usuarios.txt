@@ -3,3 +3,7 @@ cuentica123@gmail.com,1234,prueba,cuenta,U2
 bcnatero@gmail.com,asd,benito,cantero,U3
 admin,123,error,error,U4
 kiugghwjdf,sdiubwe dygdh,pedro,negrete,U100
+121234@gmail.com,1234,Jose ,Diaz,U100
+josediaz089@gmail.com,1234,Jose,Diaz,U100
+,,,,U100
+123,123,123,123,U100

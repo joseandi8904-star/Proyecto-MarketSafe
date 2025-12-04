@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
+ * @author BENJAMIN
  */
 public class PruebaVista extends Application {
 

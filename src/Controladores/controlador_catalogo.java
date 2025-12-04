@@ -5,7 +5,6 @@
 package Controladores;
 
 import Modelo.Nodo_LS;
-import Modelo.historial;
 import Modelo.producto;
 import java.io.IOException;
 import java.net.URL;
@@ -20,13 +19,17 @@ import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -34,11 +37,10 @@ import javafx.stage.Stage;
  *
  * @author BENJAMIN
  */
-public class controlador_historial implements Initializable {
-
-    @FXML
-    private VBox histolist;
+public class controlador_catalogo implements Initializable {
+        
     public metodos_generales modelo;
+    
     @FXML
     private Button Options;
     @FXML
@@ -46,9 +48,17 @@ public class controlador_historial implements Initializable {
     @FXML
     private TextField busqueda;
     @FXML
+    private VBox resultados;
+    @FXML
+    private FlowPane contCatalogo;
+    @FXML
     private ScrollPane contenedor;
     @FXML
-    private VBox resultados;
+    private ComboBox<String> filtro;
+    @FXML
+    private ComboBox<String> filtro2;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -63,34 +73,18 @@ public class controlador_historial implements Initializable {
                 ocultarResultados();
             }
         });
-    }
+    }    
     
     public void ModeloCompartido(metodos_generales modelo) {
     this.modelo = modelo;
-    cargarHistorial(); 
-}
-    
-    private void cargarHistorial() {
-    histolist.getChildren().clear();
-    Nodo_LS <historial> historiales = modelo.cab_h;
-    
-    while (historiales!=null ) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/contenedor_historial.fxml"));
-            VBox ContenedorVBox = loader.load();
-            contenedor_historial controller = loader.getController();
-            controller.agregarhistorial(historiales.dato, modelo);
-            histolist.getChildren().add(ContenedorVBox);
-            historiales=historiales.sig;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    cargarcatalogo("Todos","A-Z");
+    inicializarCategorias();
+    inicializarOrdenes();
 }
 
     @FXML
-    private void abrircarrito(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_carrito.fxml", event,this.modelo);
+    private void abrirhistorial(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_historial.fxml", event,this.modelo);
     }
 
     @FXML
@@ -121,6 +115,11 @@ public class controlador_historial implements Initializable {
             alerta.showAndWait();
         }
     }
+    }
+    
+    @FXML
+    private void abrircarrito(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_carrito.fxml", event,this.modelo);
     }
 
     @FXML
@@ -189,9 +188,119 @@ private void ocultarResultados() {
     contenedor.setManaged(false);
 }   
 
-    @FXML
-    private void catalogo(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
+    public void cargarcatalogo(String category, String orden) {
+        contCatalogo.getChildren().clear();
+        List<producto> productos = modelo.obtenerProductosFiltrados(category, orden);
+        try{
+            for (producto prod : productos) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/producto.fxml"));
+                VBox productoVBox = loader.load();
+                productoVBox.setOnMouseClicked(e -> {
+                modelo.datosProducto("/Vistas/vista_infoproducto.fxml", prod,modelo);
+                Stage ventanaActual = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                ventanaActual.close();
+            });
+                controlador_producto controller = loader.getController();
+                controller.agregarproducto(prod, modelo);
+                productoVBox.setPrefWidth(130);
+                contCatalogo.getChildren().add(productoVBox);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
+    @FXML
+    private void cambio(ActionEvent event) {
+        String select = filtro.getValue();
+        String orden = filtro2.getValue();
+        cargarcatalogo(select,orden); 
+    }
+    
+    public void inicializarCategorias() {
+    List<String> categorias = modelo.obtenerCategorias();
+    filtro.getItems().add("Todos");
+    filtro.getItems().addAll(categorias);
+    filtro.setValue("Todos");
+
+    filtro.setStyle("-fx-background-color: transparent; -fx-border-color: #cccccc; -fx-border-width: 1px; -fx-border-radius: 20px;");
+    
+    // Personalizar cómo se muestra el texto seleccionado
+    filtro.setButtonCell(new ListCell<String>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(item);
+                setTextFill(Color.GREEN); 
+                setStyle("-fx-background-color: transparent;");
+            }
+        }
+    });
+    
+    // Personalizar las opciones del dropdown
+    filtro.setCellFactory(listView -> new ListCell<String>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(item);
+                setTextFill(Color.GREEN);
+            }
+        }
+    });
+}
+
+    @FXML
+    private void cambio2(ActionEvent event) {
+        String select = filtro.getValue();
+        String orden = filtro2.getValue();
+        cargarcatalogo(select,orden); 
+    }
+    
+    public void inicializarOrdenes() {
+    filtro2.getItems().add("A-Z");
+    filtro2.getItems().add("Z-A");
+    filtro2.getItems().add("Mayor precio");
+    filtro2.getItems().add("Menor precio");
+    filtro2.getItems().add("Favoritos");
+    filtro2.setValue("A-Z");
+
+    filtro2.setStyle("-fx-background-color: transparent; -fx-border-color: #cccccc; -fx-border-width: 1px; -fx-border-radius: 20px;");
+    
+    // Personalizar cómo se muestra el texto seleccionado
+    filtro2.setButtonCell(new ListCell<String>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(item);
+                setTextFill(Color.GREEN); 
+                setStyle("-fx-background-color: transparent;");
+            }
+        }
+    });
+    
+    // Personalizar las opciones del dropdown
+    filtro2.setCellFactory(listView -> new ListCell<String>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(item);
+                setTextFill(Color.GREEN);
+            }
+        }
+    });
+}
     
 }

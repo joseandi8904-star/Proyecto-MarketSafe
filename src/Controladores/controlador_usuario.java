@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
+ * @author BENJAMIN
  */
 public class controlador_usuario implements Initializable {
 
@@ -108,8 +109,20 @@ public class controlador_usuario implements Initializable {
     List<producto> productosPagina = modelo.obtenerProductosPagina(inicio, ELEMENTOS_POR_PAGINA);
     
     for (producto prod : productosPagina) {
-        System.out.println("Producto: " + prod.nombre + " - $" + prod.precio);
-        // La carga visual de productos se implementará en commits posteriores
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/producto.fxml"));
+            VBox productoVBox = loader.load();
+            controlador_producto controller = loader.getController();
+            controller.agregarproducto(prod, modelo);
+            productoVBox.setOnMouseClicked(e -> {
+                modelo.datosProducto("/Vistas/vista_infoproducto.fxml", prod,modelo);
+                Stage ventanaActual = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                ventanaActual.close();
+            });
+            usercatalogo.getChildren().add(productoVBox);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
     public void ModeloCompartido(metodos_generales modelo) {
@@ -152,8 +165,7 @@ public class controlador_usuario implements Initializable {
         String codigoCorrecto = "1234";
 
         if (codigoIngresado.equals(codigoCorrecto)) {
-            System.out.println("Acceso a admin - pendiente");
-            // Se implementará cuando tengamos controlador_admin
+            modelo.cambioventana("/Vistas/vista_admin.fxml", event,this.modelo);
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("Error de acceso");
@@ -198,6 +210,12 @@ public class controlador_usuario implements Initializable {
             Label item = new Label(existencias.dato.nombre);
             item.wrapTextProperty();
             item.setStyle("-fx-cursor: hand; -fx-background-color: #f0f0f0; -fx-padding: 5;");
+            producto prod = modelo.buscarProductoPorID(existencias.dato.idp);
+            item.setOnMouseClicked(e -> {
+                modelo.datosProducto("/Vistas/vista_infoproducto.fxml", prod,modelo);
+                Stage ventanaActual = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                ventanaActual.close();
+            });
             resultados.getChildren().add(item);
         }
         
@@ -216,8 +234,7 @@ private void ocultarResultados() {
 
     @FXML
     private void catalogo(ActionEvent event) {
-        System.out.println("Abrir catálogo - pendiente");
-        // Se implementará cuando tengamos controlador_catalogo
+        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
     }
     
     

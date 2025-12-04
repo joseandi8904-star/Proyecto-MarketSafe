@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="contenedor" prefHeight="139.0" prefWidth="585.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.contenedor_historial">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ffe5e5;">
+         <children>
+            <Label fx:id="fecha" text="dd/MM/yyyy" StackPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="valor" text="\$$$" StackPane.alignment="CENTER_RIGHT" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </StackPane>
+   </children>
+   <padding>
+      <Insets top="15.0" />
+   </padding>
+</VBox>
+

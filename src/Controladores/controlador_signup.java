@@ -30,6 +30,7 @@ import javafx.stage.Window;
 /**
  * FXML Controller class
  *
+ * @author BENJAMIN
  */
 public class controlador_signup implements Initializable {
 
@@ -92,3 +93,4 @@ public class controlador_signup implements Initializable {
     
     
 }
+    

@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
+ * @author BENJAMIN
  */
 public class controlador_deseos implements Initializable {
 
@@ -113,12 +114,40 @@ public class controlador_deseos implements Initializable {
         H.show(Options, Side.BOTTOM,0,0);
     }
 
-    
+    @FXML
+    private void crearproducto(ActionEvent event) {
+    TextInputDialog dialogo = new TextInputDialog();
+    dialogo.setTitle("Código de Acceso");
+    dialogo.setHeaderText("Ingrese el código para continuar");
+    dialogo.setContentText("Código:");
+
+    Optional<String> resultado = dialogo.showAndWait();
+
+    if (resultado.isPresent()) {
+        String codigoIngresado = resultado.get();
+        String codigoCorrecto = "1234";
+
+        if (codigoIngresado.equals(codigoCorrecto)) {
+            modelo.cambioventana("/Vistas/vista_admin.fxml", event,this.modelo);
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error de acceso");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Código incorrecto. Intente nuevamente.");
+            alerta.showAndWait();
+        }
+    }
+    }
 
     @FXML
     private void salir(ActionEvent event) {
         modelo.cerrarsesion();
         modelo.cambioventana("/Vistas/vista_principal.fxml", event,this.modelo);
+    }
+
+    @FXML
+    private void abrircarrito(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_carrito.fxml", event,this.modelo);
     }
 
     @FXML
@@ -176,5 +205,9 @@ private void ocultarResultados() {
     contenedor.setManaged(false);
 }   
 
+    @FXML
+    private void catalogo(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
+    }
     
 }

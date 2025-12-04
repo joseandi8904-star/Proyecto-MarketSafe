@@ -120,7 +120,7 @@ public class controlador_infoproducto implements Initializable {
 
         @FXML
     private void abrirhistorial(ActionEvent event) {
-     
+     modelo.cambioventana("/Vistas/vista_historial.fxml", event,this.modelo);
     }
 
     @FXML

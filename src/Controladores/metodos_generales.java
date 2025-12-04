@@ -80,6 +80,8 @@ public class metodos_generales {
             ((controlador_signup) controlador).ModeloCompartido(modelo);
         }else if (controlador instanceof controlador_usuario) {
             ((controlador_usuario) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_deseos) {
+            ((controlador_deseos) controlador).ModeloCompartido(modelo);
         }
         
         Scene scene = new Scene(root);

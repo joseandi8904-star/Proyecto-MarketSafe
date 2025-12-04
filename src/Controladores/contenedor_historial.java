@@ -22,7 +22,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class contenedor_historial implements Initializable {
 

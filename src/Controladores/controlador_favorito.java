@@ -18,7 +18,6 @@ import javafx.scene.image.ImageView;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_favorito implements Initializable {
 

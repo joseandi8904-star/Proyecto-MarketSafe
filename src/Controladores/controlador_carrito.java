@@ -4,7 +4,6 @@
  */
 package Controladores;
 
-import Modelo.Nodo_LD;
 import Modelo.Nodo_LS;
 import Modelo.producto;
 import java.io.IOException;
@@ -17,6 +16,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
@@ -33,23 +34,24 @@ import javafx.stage.Stage;
  * FXML Controller class
  *
  */
-public class controlador_deseos implements Initializable {
+public class controlador_carrito implements Initializable {
 
     @FXML
-    private VBox favlist;
+    private VBox llenarcarrito;
+    @FXML
+    private Button hacerpago;
     
     public metodos_generales modelo;
-    
     @FXML
-    private ContextMenu H;
+    private Label total;
     @FXML
     private Button Options;
     @FXML
-    private ScrollPane contenedor;
+    private ContextMenu H;
     @FXML
     private TextField busqueda;
     @FXML
-    private ScrollPane contenedor1;
+    private ScrollPane contenedor;
     @FXML
     private VBox resultados;
 
@@ -66,41 +68,58 @@ public class controlador_deseos implements Initializable {
                 ocultarResultados();
             }
         });
-    } 
-    
-    public void cargarFavs() {
-    favlist.getChildren().clear();
-    Nodo_LD <producto> aux = modelo.cab_f;
-    if (aux!=null){
-        while (aux!=null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/favorito.fxml"));
-                HBox productoVBox = loader.load();
-                controlador_favorito controller = loader.getController();
-                controller.agregarfavorito(aux.dato, this);
-                favlist.getChildren().add(productoVBox);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            aux=aux.sig;
-            }
-        }else{
-                try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/favorito.fxml"));
-                HBox productoHBox = loader.load();
-                controlador_favorito controller = loader.getController();
-                controller.defecto();
-                favlist.getChildren().add(productoHBox);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-                }
-    }
+    }   
+
     
     public void ModeloCompartido(metodos_generales modelo) {
     this.modelo = modelo;
-    modelo.antiduplicados();
-    cargarFavs();
+    cargarcarrito();
+    actualizarTotal();
+}
+    
+    public void cargarcarrito(){
+    llenarcarrito.getChildren().clear();
+    Nodo_LS<producto> actual = modelo.tope_c;
+    if (actual!=null){
+        while (actual != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/carrito_prod.fxml"));
+                HBox productoHBox = loader.load();
+                controlador_carrito_prod controller = loader.getController();
+                controller.agregarencarrito(actual.dato, this);
+                llenarcarrito.getChildren().add(productoHBox);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            actual = actual.sig;
+        }
+    }else{
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/carrito_prod.fxml"));
+                HBox productoHBox = loader.load();
+                controlador_carrito_prod controller = loader.getController();
+                controller.defecto();
+                llenarcarrito.getChildren().add(productoHBox);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+}
+    
+    public void actualizarTotal() {
+    double suma = 0;
+    Nodo_LS <producto>actual = modelo.tope_c; 
+    if (actual!=null){
+        while (actual != null) {
+            producto p = actual.dato;
+            int qty = p.cantidad;
+            suma = suma+(p.precio * qty);
+            actual = actual.sig;
+        }
+        total.setText(String.valueOf(suma));
+    }else{
+        total.setText(String.valueOf(suma));
+    }
 }
 
     @FXML
@@ -113,13 +132,14 @@ public class controlador_deseos implements Initializable {
         H.show(Options, Side.BOTTOM,0,0);
     }
 
-    
+ 
 
     @FXML
     private void salir(ActionEvent event) {
         modelo.cerrarsesion();
         modelo.cambioventana("/Vistas/vista_principal.fxml", event,this.modelo);
     }
+
 
     @FXML
     private void inicio(ActionEvent event) {
@@ -175,6 +195,11 @@ private void ocultarResultados() {
     contenedor.setVisible(false);
     contenedor.setManaged(false);
 }   
+
+    @FXML
+    private void catalogo(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
+    }
 
     
 }

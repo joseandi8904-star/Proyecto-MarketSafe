@@ -42,7 +42,6 @@
                   </Label>
                </children>
             </HBox>
-
             <HBox layoutX="70.0" layoutY="71.0" prefHeight="321.0" prefWidth="591.0" spacing="20.0">
                <children>
                   <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -53,7 +52,6 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </ImageView>
-
                   <ScrollPane prefHeight="321.0" prefWidth="264.0" style="-fx-border-color: transparent; -fx-background-color: FAF7F3;" vbarPolicy="NEVER">
                      <content>
                         <VBox prefHeight="321.0" prefWidth="200.0" spacing="10.0" style="-fx-border-color: transparent;">
@@ -73,10 +71,8 @@
                         </VBox>
                      </content>
                   </ScrollPane>
-
                   <VBox alignment="TOP_CENTER" prefHeight="321.0" prefWidth="197.0" spacing="10.0">
                      <children>
-
                         <Button fx:id="botonfav" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#estado" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
                            <graphic>
                               <ImageView fx:id="icono" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -86,14 +82,12 @@
                               </ImageView>
                            </graphic>
                         </Button>
-
                         <StackPane prefHeight="23.0" prefWidth="127.0">
                            <children>
                               <Label text="Stock disponible:" StackPane.alignment="CENTER_LEFT" />
                               <Label fx:id="stock" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="cantidad" textFill="#8b8b8b" StackPane.alignment="CENTER_RIGHT" />
                            </children>
                         </StackPane>
-
                         <StackPane prefHeight="22.0" prefWidth="157.0">
                            <children>
                               <Button mnemonicParsing="false" text="-" StackPane.alignment="CENTER_LEFT" />
@@ -101,49 +95,36 @@
                               <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="+" StackPane.alignment="CENTER_RIGHT" />
                            </children>
                         </StackPane>
-
-                        <!-- BOTÓN COMPRAR (rojo #FF0000) -->
+                        <!-- Botón "Comprar ahora" en rojo #FF0000 -->
                         <Button fx:id="compra" mnemonicParsing="false" onAction="#abrirformulario" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #FF0000;" text="Comprar ahora" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-
-                        <!-- BOTÓN CARRITO (rojo #FF0000) -->
+                        <!-- Botón "Agregar al carrito" en rojo #FF0000 -->
                         <Button fx:id="b_carrito" mnemonicParsing="false" onAction="#agregarcarrito" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #FF0000;" text="Agregar al carrito" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-
                      </children>
                   </VBox>
                </children>
             </HBox>
-
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
    </center>
-
    <bottom>
       <Pane prefHeight="58.0" prefWidth="643.0" style="-fx-background-color: F3E8DB;" BorderPane.alignment="CENTER" />
    </bottom>
-
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-
             <AnchorPane prefHeight="96.0" prefWidth="627.0">
                <children>
-
-                  <!-- BARRA SUPERIOR (rojo #FF0000) -->
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="747.0" />
-
                   <StackPane layoutX="184.0" layoutY="7.0" prefHeight="61.0" prefWidth="181.0">
                      <children>
-                        <!-- BORDE BUSCADOR (rojo #FF0000) -->
-                        <TextField prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos"
-                                   style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
+                        <!-- Campo de búsqueda con borde rojo #FF0000 -->
+                        <TextField prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
                         <Button accessibleRole="IMAGE_VIEW" mnemonicParsing="false" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -155,7 +136,6 @@
                         </Button>
                      </children>
                   </StackPane>
-
                   <Button layoutX="642.0" layoutY="22.0" mnemonicParsing="false" onAction="#abrir" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -165,12 +145,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-
-                  <!-- BOTÓN USUARIO: BORDE ROJO #FF0000 -->
-                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones"
-                          prefHeight="15.0" prefWidth="119.0"
-                          style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #FF0000; -fx-border-radius: 25;"
-                          text="   Usuario">
+                  <!-- Botón "Usuario" con borde rojo #FF0000 -->
+                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #FF0000; -fx-border-radius: 25;" text="   Usuario">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -180,15 +156,14 @@
                      </graphic>
                      <contextMenu>
                         <ContextMenu fx:id="H">
-                           <items>
+                          <items>
                               <MenuItem mnemonicParsing="false" onAction="#abrirhistorial" text="Historial" />
-                              <MenuItem mnemonicParsing="false" onAction="#crearproducto" text="Agregar producto" />
+                            <MenuItem mnemonicParsing="false" onAction="#crearproducto" text="Agregar producto" />
                               <MenuItem mnemonicParsing="false" onAction="#salir" text="Cerrar sesion" />
-                           </items>
+                          </items>
                         </ContextMenu>
                      </contextMenu>
                   </Button>
-
                   <Button layoutX="593.0" layoutY="19.0" mnemonicParsing="false" onAction="#abrircarrito" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -198,7 +173,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-
+                  <!-- Barra superior en rojo #FF0000 -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="747.0" />
                   <Button fx:id="logo" layoutX="-7.0" layoutY="3.0" mnemonicParsing="false" onAction="#inicio" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
@@ -208,10 +184,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-
                </children>
             </AnchorPane>
-
             <Button layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#catalogo" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
@@ -221,7 +195,6 @@
                   </ImageView>
                </graphic>
             </Button>
-
          </children>
       </AnchorPane>
    </top>

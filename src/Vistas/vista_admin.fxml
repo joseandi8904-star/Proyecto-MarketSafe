@@ -42,6 +42,7 @@
                   </Label>
                </children>
             </HBox>
+            <!-- Botón "Crear Producto" en rojo #FF0000 -->
             <Button fx:id="aggproducto" layoutX="583.0" layoutY="364.0" mnemonicParsing="false" onAction="#crear" prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #FF0000;" text="Crear Producto" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -122,6 +123,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <!-- Botón "Usuario" con borde rojo #FF0000 -->
                   <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #FF0000; -fx-border-radius: 25;" text="   Usuario">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -149,6 +151,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <!-- Barra superior en rojo #FF0000 -->
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="747.0" />
                   <Button fx:id="logo" layoutY="3.0" mnemonicParsing="false" onAction="#inicio" style="-fx-background-color: transparent;">
                      <graphic>
@@ -163,6 +166,7 @@
                      <children>
                         <StackPane prefHeight="87.0" prefWidth="213.0">
                            <children>
+                              <!-- Campo de búsqueda con borde rojo #FF0000 -->
                               <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
                               <Button accessibleRole="IMAGE_VIEW" mnemonicParsing="false" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
                                  <graphic>

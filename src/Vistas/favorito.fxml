@@ -39,12 +39,12 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="agg" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Agregar a lista" textFill="#ff4a4a">
+                  <Button fx:id="agg" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Agregar a lista" textFill="#29ab87">
                      <padding>
                         <Insets left="20.0" top="30.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="delete" mnemonicParsing="false" onAction="#borrar" style="-fx-background-color: transparent;" text="Eliminar" textFill="#ff4a4a">
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#borrar" style="-fx-background-color: transparent;" text="Eliminar" textFill="#29ab87">
                      <padding>
                         <Insets left="40.0" top="30.0" />
                      </padding>

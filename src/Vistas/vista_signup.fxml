@@ -30,17 +30,12 @@
                      </font>
                   </Label>
                   <PasswordField fx:id="contraseña" layoutX="25.0" layoutY="294.0" prefHeight="32.0" prefWidth="311.0" promptText="*********" />
-
-                  <!-- CAMBIO NARANJA → ROJO -->
-                  <Button fx:id="crear" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" 
-                          onAction="#creacionCuenta" prefHeight="32.0" prefWidth="311.0"
-                          style="-fx-background-color: #FF4A4A;" 
-                          text="Crear cuenta" textAlignment="CENTER" textFill="WHITE">
+                  <!-- Botón "Crear cuenta" en rojo #FF0000 -->
+                  <Button fx:id="crear" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" onAction="#creacionCuenta" prefHeight="32.0" prefWidth="311.0" style="-fx-background-color: #FF0000;" text="Crear cuenta" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-
                   <Label layoutX="22.0" layoutY="105.0" text="Apellidos">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -58,24 +53,16 @@
          </children>
       </AnchorPane>
    </center>
-
    <bottom>
       <Pane prefHeight="58.0" prefWidth="643.0" style="-fx-background-color: #F3E8DB;" BorderPane.alignment="CENTER" />
    </bottom>
-
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="96.0" prefWidth="627.0">
                <children>
-
-                  <!-- CAMBIO NARANJA → ROJO -->
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" 
-                             fill="#FF4A4A" height="28.0"
-                             layoutX="-16.0" layoutY="68.0"
-                             stroke="#FF4A4A" strokeType="INSIDE"
-                             width="716.0" />
-
+                  <!-- Barra superior en rojo #FF0000 -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="716.0" />
                   <Button mnemonicParsing="false" onAction="#volver" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
@@ -85,7 +72,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-
                </children>
             </AnchorPane>
          </children>

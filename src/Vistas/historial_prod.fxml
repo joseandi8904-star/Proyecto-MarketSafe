@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="httpfx.com/fxml/1" fx:controller="Controladores.controlador_historial_prod">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.controlador_historial_prod">
    <children>
       <ImageView fx:id="foto" fitHeight="111.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
       <VBox prefHeight="110.0" prefWidth="363.0">
@@ -38,10 +38,8 @@
       </VBox>
       <StackPane prefHeight="110.0" prefWidth="124.0">
          <children>
-            <!-- Botón cambiado a rojo -->
-            <Button fx:id="irproducto" mnemonicParsing="false"
-                    style="-fx-background-color: #ff4a4a; -fx-border-color: #c40000; -fx-border-width: 1.5;"
-                    text="Ver producto" textFill="WHITE" />
+            <!-- Botón "Ver producto" en rojo #FF0000 -->
+            <Button fx:id="irproducto" mnemonicParsing="false" style="-fx-background-color: #FF0000;" text="Ver producto" textFill="WHITE" />
          </children>
       </StackPane>
    </children>

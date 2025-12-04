@@ -74,7 +74,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #c40000; -fx-border-radius: 25;" text="   Usuario">
+            <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #FF0000; -fx-border-radius: 25;" text="   Usuario">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -86,8 +86,8 @@
                   <ContextMenu fx:id="H">
                     <items>
                       <MenuItem fx:id="h" mnemonicParsing="false" onAction="#abrirhistorial" text="Historial" />
-                      <MenuItem fx:id="add" mnemonicParsing="false" onAction="#crearproducto" text="Agregar producto" />
-                      <MenuItem fx:id="out" mnemonicParsing="false" onAction="#salir" text="Cerrar sesion" />
+                        <MenuItem fx:id="add" mnemonicParsing="false" onAction="#crearproducto" text="Agregar producto" />
+                        <MenuItem fx:id="out" mnemonicParsing="false" onAction="#salir" text="Cerrar sesion" />
                     </items>
                   </ContextMenu>
                </contextMenu>
@@ -101,18 +101,12 @@
                   </ImageView>
                </graphic>
             </Button>
-
-            <!-- BARRA NARANJA CAMBIADA A ROJO -->
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff4a4a" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#ff4a4a" strokeType="INSIDE" width="747.0" />
-
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="747.0" />
             <VBox layoutX="222.0" layoutY="-3.0" prefHeight="95.0" prefWidth="213.0">
                <children>
                   <StackPane prefHeight="87.0" prefWidth="213.0">
                      <children>
-
-                        <!-- BORDE DEL BUSCADOR CAMBIADO A ROJO -->
-                        <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #c40000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
-
+                        <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
                         <Button accessibleRole="IMAGE_VIEW" mnemonicParsing="false" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -124,7 +118,6 @@
                         </Button>
                      </children>
                   </StackPane>
-
                   <ScrollPane fx:id="contenedor" fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="215.0" style="-fx-managed: false;" visible="false">
                      <content>
                         <VBox fx:id="resultados" onKeyReleased="#buscarcatalogo" prefHeight="200.0" prefWidth="212.0" />
@@ -132,7 +125,6 @@
                   </ScrollPane>
                </children>
             </VBox>
-
             <Button layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#catalogo" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">

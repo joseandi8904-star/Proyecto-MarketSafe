@@ -60,10 +60,12 @@
                         <Label prefHeight="17.0" prefWidth="67.0" text="Descuento" StackPane.alignment="CENTER_LEFT" />
                      </children>
                   </StackPane>
-                  <Button fx:id="hacerpago" layoutX="12.0" layoutY="92.0" mnemonicParsing="false" onAction="#abrirformulario" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #ff4a4a;" text="Continuar pago" textFill="WHITE" />
+                  <!-- Botón "Continuar pago" en rojo #FF0000 -->
+                  <Button fx:id="hacerpago" layoutX="12.0" layoutY="92.0" mnemonicParsing="false" onAction="#abrirformulario" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #FF0000;" text="Continuar pago" textFill="WHITE" />
                </children>
             </AnchorPane>
-            <Button layoutX="497.0" layoutY="68.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: #ff4a4a;" text="Resumen compra" textFill="WHITE" />
+            <!-- Botón "Resumen compra" en rojo #FF0000 -->
+            <Button layoutX="497.0" layoutY="68.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: #FF0000;" text="Resumen compra" textFill="WHITE" />
          </children></AnchorPane>
    </center>
    <bottom>
@@ -83,7 +85,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #ff4a4a; -fx-border-radius: 25;" text="   Usuario">
+                  <!-- Botón "Usuario" con borde rojo #FF0000 -->
+                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #FF0000; -fx-border-radius: 25;" text="   Usuario">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -110,7 +113,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff4a4a" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#ff4a4a" strokeType="INSIDE" width="747.0" />
+                  <!-- Barra superior en rojo #FF0000 -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="747.0" />
                   <Button layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#inicio" prefHeight="72.0" prefWidth="153.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
@@ -126,7 +130,8 @@
                <children>
                   <StackPane prefHeight="87.0" prefWidth="213.0">
                      <children>
-                        <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #ff4a4a; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
+                        <!-- Campo de búsqueda con borde rojo #FF0000 -->
+                        <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
                         <Button accessibleRole="IMAGE_VIEW" mnemonicParsing="false" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

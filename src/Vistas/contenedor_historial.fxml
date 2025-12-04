@@ -8,7 +8,7 @@
 
 <VBox fx:id="contenedor" prefHeight="139.0" prefWidth="585.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.contenedor_historial">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ffe5e5;">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
             <Label fx:id="fecha" text="dd/MM/yyyy" StackPane.alignment="CENTER_LEFT">
                <font>
@@ -29,4 +29,3 @@
       <Insets top="15.0" />
    </padding>
 </VBox>
-

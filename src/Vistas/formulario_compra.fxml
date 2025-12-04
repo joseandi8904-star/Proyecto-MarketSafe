@@ -15,9 +15,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.controlador_compra">
    <center>
-      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="378.0" style="-fx-background-color: #ffe5e5;" BorderPane.alignment="CENTER">
+      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="378.0" style="-fx-background-color: #f9f6f2;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="10.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="401.0" prefWidth="357.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #c40000;">
+            <AnchorPane layoutX="10.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="401.0" prefWidth="357.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #dbdbdb;">
                <children>
                   <TextField fx:id="address" layoutX="23.0" layoutY="177.0" prefHeight="32.0" prefWidth="311.0" promptText="Casa, apartamento, barrio" />
                   <Label layoutX="22.0" layoutY="157.0" text="Direccion">
@@ -31,7 +31,8 @@
                      </font>
                   </Label>
                   <PasswordField layoutX="23.0" layoutY="303.0" prefHeight="32.0" prefWidth="311.0" promptText="*********" />
-                  <Button fx:id="pago" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" onAction="#guardarpago" prefHeight="32.0" prefWidth="311.0" style="-fx-background-color: #ff4a4a;" text="Confirmar pago" textAlignment="CENTER" textFill="WHITE">
+                  <!-- Botón "Confirmar pago" en rojo #FF0000 -->
+                  <Button fx:id="pago" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" onAction="#guardarpago" prefHeight="32.0" prefWidth="311.0" style="-fx-background-color: #FF0000;" text="Confirmar pago" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -63,7 +64,8 @@
       </AnchorPane>
    </center>
    <bottom>
-      <Pane prefHeight="58.0" prefWidth="367.0" style="-fx-background-color: #ff6b6b;" BorderPane.alignment="CENTER" />
+      <!-- Pane inferior en rojo #FF0000 -->
+      <Pane prefHeight="58.0" prefWidth="367.0" style="-fx-background-color: #FF0000;" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <AnchorPane prefHeight="96.0" prefWidth="547.0" BorderPane.alignment="CENTER">
@@ -75,7 +77,8 @@
                         <Image url="@../Imagenes/Iconos/icono.png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff4a4a" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#c40000" strokeType="INSIDE" width="396.0" />
+                  <!-- Barra superior en rojo #FF0000 -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="396.0" />
                </children>
             </AnchorPane>
          </children>

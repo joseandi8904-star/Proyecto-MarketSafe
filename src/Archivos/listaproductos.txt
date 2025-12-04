@@ -1,5 +1,5 @@
-P1,FULL GAMER SUIT,500,/Imagenes/Productos/combogamer.png,1,"Pc gamer con todos sus perifericos incluidos",Tecnologia
-P2,Audífonos Inalámbricos,60000,/Imagenes/Productos/audifonos.png,0,"audifonos totalmente funcionales con cargador incluido y cancelacion de ruido",Tecnologia
+P1,FULL GAMER SUIT,500,/Imagenes/Productos/combogamer.png,4,"Pc gamer con todos sus perifericos incluidos",Tecnologia
+P2,Audífonos Inalámbricos,60000,/Imagenes/Productos/audifonos.png,4,"audifonos totalmente funcionales con cargador incluido y cancelacion de ruido",Tecnologia
 P3,Reloj pulsera Festina datos digitales,45000,/Imagenes/Productos/reloj.jpg,3,"Reloj inteligente 115plus para niños, pulsera deportiva inteligente con Bluetooth 4,0 para iOS, Android, rastreador deportivo, reloj de pulsera táctil",Tecnologia
 P4,Botella Azul con Mango de Acero,20000,/Imagenes/Productos/botella.png,4,"Taza de hielo de café con aislamiento al vacío de acero inoxidable de 30 oz, taza con aislamiento 100% a prueba de fugas, botella de viaje con asa (azul)",Hogar
 P5,Auriculares electrónicos con cancelación de ruido,143000,/Imagenes/Productos/auriculares.jpg,5,"Auriculares inalámbricos E6S con cancelación de ruido, auriculares estéreo intrauditivos impermeables con estuche de carga con pantalla LED",Tecnologia

@@ -27,10 +27,7 @@
                      </opaqueInsets>
                      <padding>
                         <Insets bottom="5.0" left="20.0" top="5.0" />
-                     </padding>
-                  </HBox>
-
-                  <!-- Flechas -->
+                     </padding></HBox>
                   <Button fx:id="derecha" layoutX="671.0" layoutY="324.0" mnemonicParsing="false" onAction="#siguiente" prefHeight="38.0" prefWidth="19.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -38,10 +35,11 @@
                               <Image url="@../Imagenes/Iconos/flechader.png" />
                            </image>
                         </ImageView>
-                     </graphic>
-                  </Button>
-
+                     </graphic></Button>
                   <Button fx:id="izquierda" layoutY="324.0" mnemonicParsing="false" onAction="#anterior" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                      <graphic>
                         <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,8 +48,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-
-                  <!-- Banner -->
                   <ImageView fitHeight="220.0" fitWidth="668.0" layoutX="28.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Publicidad/banner.png" />
@@ -62,48 +58,30 @@
          </children>
       </AnchorPane>
    </center>
-
    <bottom>
       <Pane prefHeight="58.0" prefWidth="643.0" style="-fx-background-color: F3E8DB;" BorderPane.alignment="CENTER" />
    </bottom>
-
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="96.0" prefWidth="627.0">
                <children>
-
-                  <!-- Logo -->
                   <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/Iconos/icono.png" />
                      </image>
                   </ImageView>
-
-                  <!-- Botones -->
                   <Button fx:id="existente" layoutX="568.0" layoutY="25.0" mnemonicParsing="false" onAction="#entrar" style="-fx-background-color: #ffffff; -fx-border-color: #808080;" text="Ingresar" />
                   <Button fx:id="nuevo" layoutX="460.0" layoutY="25.0" mnemonicParsing="false" onAction="#crear" style="-fx-background-color: #FFFFFF; -fx-border-color: #808080;" text="Crear Cuenta" />
-
-                  <!-- BARRA QUE ESTABA NARANJA → AHORA ROJA -->
+                  <!-- Barra superior en rojo #FF0000 -->
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#FF0000" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#FF0000" strokeType="INSIDE" width="744.0" />
-
                   <VBox layoutX="222.0" layoutY="-3.0" prefHeight="95.0" prefWidth="213.0">
                      <children>
                         <StackPane prefHeight="87.0" prefWidth="213.0">
                            <children>
-
-                              <!-- TEXTFIELD BORDE NARANJA → ROJO -->
-                              <TextField fx:id="busqueda" 
-                                         prefHeight="25.0" prefWidth="233.0"
-                                         promptText="Buscar productos"
-                                         style="-fx-background-color: #fdf9f7; 
-                                                -fx-border-color: #FF0000; 
-                                                -fx-border-width: 1.5; 
-                                                -fx-border-radius: 25; 
-                                                -fx-background-radius: 25; 
-                                                -fx-padding: 5;" />
-
-                              <Button style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
+                              <!-- Campo de búsqueda con borde rojo #FF0000 -->
+                              <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0" promptText="Buscar productos" style="-fx-background-color: #fdf9f7; -fx-border-color: #FF0000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
+                              <Button accessibleRole="IMAGE_VIEW" mnemonicParsing="false" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -114,15 +92,13 @@
                               </Button>
                            </children>
                         </StackPane>
-
-                        <ScrollPane fx:id="contenedor" fitToHeight="true" fitToWidth="true" prefHeight="300.0" prefWidth="215.0" visible="false">
+                        <ScrollPane fx:id="contenedor" fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="215.0" style="-fx-managed: false;" visible="false">
                            <content>
                               <VBox fx:id="resultados" onKeyReleased="#buscarcatalogo" prefHeight="200.0" prefWidth="212.0" />
                            </content>
                         </ScrollPane>
                      </children>
                   </VBox>
-
                   <Button layoutX="647.0" layoutY="14.0" mnemonicParsing="false" onAction="#catalogo" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
@@ -130,13 +106,10 @@
                               <Image url="@../Imagenes/Iconos/catalogo.png" />
                            </image>
                         </ImageView>
-                     </graphic>
-                  </Button>
-
+                     </graphic></Button>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
    </top>
-
 </BorderPane>

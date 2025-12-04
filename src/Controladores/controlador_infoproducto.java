@@ -30,7 +30,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_infoproducto implements Initializable {
 
@@ -96,31 +95,7 @@ public class controlador_infoproducto implements Initializable {
 
     @FXML
     private void abrirformulario(ActionEvent event) throws IOException {
-        if (modelo.actual!=null){
-            if(data.cantidad>=Integer.parseInt(cant.getText())){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/formulario_compra.fxml"));
-            Parent root = loader.load();
-            controlador_compra controller = loader.getController();
-            producto Udata= new producto(data.idp,data.nombre,data.precio,data.imagen,(Integer.parseInt(cant.getText())));
-            modelo.actualizarcantidad(Udata.cantidad, data.idp);
-            int c=data.cantidad-Udata.cantidad;
-            modelo.actualizarArchivoCantidad(data.idp, c);
-            controller.ModeloCompartido(modelo, Udata, this);
-            System.out.println(data.cantidad);
-            System.out.println(Udata.cantidad);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-            }else{
-                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-                alerta.setHeaderText(null);
-                alerta.setTitle("Stock insuficiente");
-                alerta.setContentText("No hay productos suficientes para su pedido");
-                alerta.showAndWait();
-            }
-        }else{
-            modelo.cambioventana("/Vistas/vista_signup.fxml", event,this.modelo);
-        }
+        
     }
 
     @FXML
@@ -145,7 +120,7 @@ public class controlador_infoproducto implements Initializable {
 
         @FXML
     private void abrirhistorial(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_historial.fxml", event,this.modelo);
+     
     }
 
     @FXML
@@ -155,27 +130,7 @@ public class controlador_infoproducto implements Initializable {
 
     @FXML
     private void crearproducto(ActionEvent event) {
-    TextInputDialog dialogo = new TextInputDialog();
-    dialogo.setTitle("Código de Acceso");
-    dialogo.setHeaderText("Ingrese el código para continuar");
-    dialogo.setContentText("Código:");
-
-    Optional<String> resultado = dialogo.showAndWait();
-
-    if (resultado.isPresent()) {
-        String codigoIngresado = resultado.get();
-        String codigoCorrecto = "1234";
-
-        if (codigoIngresado.equals(codigoCorrecto)) {
-            modelo.cambioventana("/Vistas/vista_admin.fxml", event,this.modelo);
-        } else {
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Error de acceso");
-            alerta.setHeaderText(null);
-            alerta.setContentText("Código incorrecto. Intente nuevamente.");
-            alerta.showAndWait();
-        }
-    }
+    
     }
 
     @FXML
@@ -184,15 +139,7 @@ public class controlador_infoproducto implements Initializable {
         modelo.cambioventana("/Vistas/vista_principal.fxml", event,this.modelo);
     }
 
-    @FXML
-    private void abrir(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_deseos.fxml", event,this.modelo);
-    }
 
-    @FXML
-    private void abrircarrito(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_carrito.fxml", event,this.modelo);
-    }
 
     @FXML
     private void estado(ActionEvent event) {
@@ -210,9 +157,5 @@ public class controlador_infoproducto implements Initializable {
     }
 }
 
-    @FXML
-    private void catalogo(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
-    }
     
 }

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="581.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.controlador_infoproducto">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="577.0" style="-fx-background-color: #ffe5e5;">
+         <children>
+            <HBox layoutX="70.0" layoutY="27.0" prefHeight="16.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Label text="Compras" textFill="#c40000">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="&gt;">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Producto" textFill="#c40000">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+
+            <HBox layoutX="70.0" layoutY="71.0" prefHeight="321.0" prefWidth="591.0" spacing="20.0">
+               <children>
+
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/Productos/imagen.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+
+                  <ScrollPane prefHeight="321.0" prefWidth="264.0" style="-fx-border-color: transparent; -fx-background-color: #ffe5e5;" vbarPolicy="NEVER">
+                     <content>
+                        <VBox prefHeight="321.0" prefWidth="200.0" spacing="10.0" style="-fx-border-color: transparent;">
+                           <children>
+                              <Label fx:id="title" text="Titulo del producto" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="price" text="\$$$">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="description" editable="false" focusTraversable="false" prefHeight="227.0" prefWidth="197.0" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+
+                  <VBox alignment="TOP_CENTER" prefHeight="321.0" prefWidth="197.0" spacing="10.0">
+                     <children>
+
+                        <Button fx:id="botonfav" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#estado" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fx:id="icono" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/Iconos/nofavorito.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+
+                        <StackPane prefHeight="23.0" prefWidth="127.0">
+                           <children>
+                              <Label text="Stock disponible:" StackPane.alignment="CENTER_LEFT" />
+                              <Label fx:id="stock" alignment="CENTER_RIGHT" text="cantidad" textFill="#a0a0a0" StackPane.alignment="CENTER_RIGHT" />
+                           </children>
+                        </StackPane>
+
+                        <StackPane prefHeight="22.0" prefWidth="157.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="-" StackPane.alignment="CENTER_LEFT" />
+                              <TextField fx:id="cant" prefHeight="25.0" prefWidth="99.0" StackPane.alignment="CENTER" />
+                              <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="+" StackPane.alignment="CENTER_RIGHT" />
+                           </children>
+                        </StackPane>
+
+                        <Button fx:id="compra" mnemonicParsing="false" onAction="#abrirformulario" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #ff4a4a;" text="Comprar ahora" textFill="WHITE">
+                           <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+
+                        <Button fx:id="b_carrito" mnemonicParsing="false" onAction="#agregarcarrito" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #ffb3b3;" text="Agregar al carrito" textFill="#c40000">
+                           <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+
+   <bottom>
+      <Pane prefHeight="58.0" prefWidth="643.0" style="-fx-background-color: #ffcccc;" BorderPane.alignment="CENTER" />
+   </bottom>
+
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="96.0" prefWidth="627.0">
+               <children>
+
+                  <StackPane layoutX="184.0" layoutY="7.0" prefHeight="61.0" prefWidth="181.0">
+                     <children>
+                        <TextField
+                           prefHeight="25.0" prefWidth="233.0"
+                           promptText="Buscar productos"
+                           style="-fx-background-color: #fff2f2; -fx-border-color: #c40000; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
+                        <Button style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image><Image url="@../Imagenes/Iconos/lupa.png" /></image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+
+                  <Button layoutX="642.0" layoutY="22.0" mnemonicParsing="false" onAction="#abrir" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/corazon.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false" onAction="#mostraropciones"
+                          prefHeight="15.0" prefWidth="119.0"
+                          style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #c40000; -fx-border-radius: 25;"
+                          text="   Usuario">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/usuario.png" /></image>
+                        </ImageView>
+                     </graphic>
+
+                     <contextMenu>
+                        <ContextMenu fx:id="H">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#abrirhistorial" text="Historial" />
+                              <MenuItem mnemonicParsing="false" onAction="#crearproducto" text="Agregar producto" />
+                              <MenuItem mnemonicParsing="false" onAction="#salir" text="Cerrar sesion" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </Button>
+
+                  <Button layoutX="593.0" layoutY="19.0" mnemonicParsing="false" onAction="#abrircarrito" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/carrito.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff4a4a" height="28.0" layoutX="-16.0" layoutY="68.0" stroke="#ff4a4a" width="747.0" />
+
+                  <Button fx:id="logo" layoutX="-7.0" layoutY="3.0" mnemonicParsing="false" onAction="#inicio" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/icono.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+               </children>
+            </AnchorPane>
+
+            <Button layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#catalogo" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image><Image url="@../Imagenes/Iconos/catalogo.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+         </children>
+      </AnchorPane>
+   </top>
+
+</BorderPane>

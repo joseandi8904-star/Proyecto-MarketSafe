@@ -5,8 +5,12 @@
         <group>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Modelo/Nodo_LS.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Modelo/historial.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Controladores/controlador_infoproducto.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Modelo/producto.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Controladores/metodos_generales.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Modelo/Nodo_LD.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Controladores/controlador_signup.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Controladores/controlador_usuario.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/MarketSafe/src/Controladores/PruebaVista.java</file>
         </group>
     </open-files>

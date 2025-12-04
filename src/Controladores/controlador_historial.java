@@ -5,6 +5,7 @@
 package Controladores;
 
 import Modelo.Nodo_LS;
+import Modelo.historial;
 import Modelo.producto;
 import java.io.IOException;
 import java.net.URL;
@@ -21,13 +22,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -35,38 +33,21 @@ import javafx.stage.Stage;
  * FXML Controller class
  *
  */
-public class controlador_usuario implements Initializable {
+public class controlador_historial implements Initializable {
 
-    
-    private int inicio = 0;
-    private final int ELEMENTOS_POR_PAGINA = 5;
-    private metodos_generales modelo;
     @FXML
-    private HBox usercatalogo;
-    @FXML
-    private Button atras;
-    @FXML
-    private Button adelante;
-    @FXML
-    private Button fav;
-    @FXML
-    private Button carrito;
-    @FXML
-    private ContextMenu H;
+    private VBox histolist;
+    public metodos_generales modelo;
     @FXML
     private Button Options;
     @FXML
-    private MenuItem h;
-    @FXML
-    private MenuItem add;
-    @FXML
-    private MenuItem out;
+    private ContextMenu H;
     @FXML
     private TextField busqueda;
     @FXML
-    private VBox resultados;
-    @FXML
     private ScrollPane contenedor;
+    @FXML
+    private VBox resultados;
 
     /**
      * Initializes the controller class.
@@ -82,56 +63,30 @@ public class controlador_usuario implements Initializable {
             }
         });
     }
-      
-
-    @FXML
-    private void retroceder(ActionEvent event) {
-        if (inicio >= ELEMENTOS_POR_PAGINA) {
-        inicio -= ELEMENTOS_POR_PAGINA;
-        cargarPagina();
-        System.out.println("Retrocediendo...");
-    }
-    }
-
-    @FXML
-    private void avanzar(ActionEvent event) {
-        if (inicio + ELEMENTOS_POR_PAGINA < modelo.tamañoListaSen()) {
-        inicio += ELEMENTOS_POR_PAGINA;
-        cargarPagina();
-        System.out.println("Avanzando...");
-    }
-    }
     
-    private void cargarPagina() {
-    modelo.cargarHistoriales(modelo.actual.idu);
-    usercatalogo.getChildren().clear();
-    List<producto> productosPagina = modelo.obtenerProductosPagina(inicio, ELEMENTOS_POR_PAGINA);
-    
-    for (producto prod : productosPagina) {
-        System.out.println("Producto: " + prod.nombre + " - $" + prod.precio);
-        // La carga visual de productos se implementará en commits posteriores
-    }
-}
     public void ModeloCompartido(metodos_generales modelo) {
     this.modelo = modelo;
-    modelo.antiduplicados(); 
-    cargarPagina();
+    cargarHistorial(); 
+}
+    
+    private void cargarHistorial() {
+    histolist.getChildren().clear();
+    Nodo_LS <historial> historiales = modelo.cab_h;
+    
+    while (historiales!=null ) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vistas/contenedor_historial.fxml"));
+            VBox ContenedorVBox = loader.load();
+            contenedor_historial controller = loader.getController();
+            controller.agregarhistorial(historiales.dato, modelo);
+            histolist.getChildren().add(ContenedorVBox);
+            historiales=historiales.sig;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
-    @FXML
-    private void abrir(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_deseos.fxml", event,this.modelo);
-    }
-
-    @FXML
-    private void abrircarrito(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_carrito.fxml", event,this.modelo);
-    }
-
-    @FXML
-    private void abrirhistorial(ActionEvent event) {
-        modelo.cambioventana("/Vistas/vista_historial.fxml", event,this.modelo);
-    }
 
     @FXML
     private void mostraropciones(ActionEvent event) {
@@ -152,8 +107,7 @@ public class controlador_usuario implements Initializable {
         String codigoCorrecto = "1234";
 
         if (codigoIngresado.equals(codigoCorrecto)) {
-            System.out.println("Acceso a admin - pendiente");
-            // Se implementará cuando tengamos controlador_admin
+            modelo.cambioventana("/Vistas/vista_admin.fxml", event,this.modelo);
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("Error de acceso");
@@ -168,6 +122,16 @@ public class controlador_usuario implements Initializable {
     private void salir(ActionEvent event) {
         modelo.cerrarsesion();
         modelo.cambioventana("/Vistas/vista_principal.fxml", event,this.modelo);
+    }
+
+    @FXML
+    private void abrir(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_deseos.fxml", event,this.modelo);
+    }
+
+    @FXML
+    private void inicio(ActionEvent event) {
+        modelo.cambioventana("/Vistas/vista_usuario.fxml", event, this.modelo);
     }
 
     @FXML
@@ -198,6 +162,12 @@ public class controlador_usuario implements Initializable {
             Label item = new Label(existencias.dato.nombre);
             item.wrapTextProperty();
             item.setStyle("-fx-cursor: hand; -fx-background-color: #f0f0f0; -fx-padding: 5;");
+            producto prod = modelo.buscarProductoPorID(existencias.dato.idp);
+            item.setOnMouseClicked(e -> {
+                modelo.datosProducto("/Vistas/vista_infoproducto.fxml", prod,modelo);
+                Stage ventanaActual = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                ventanaActual.close();
+            });
             resultados.getChildren().add(item);
         }
         
@@ -216,9 +186,7 @@ private void ocultarResultados() {
 
     @FXML
     private void catalogo(ActionEvent event) {
-        System.out.println("Abrir catálogo - pendiente");
-        // Se implementará cuando tengamos controlador_catalogo
+        modelo.cambioventana("/Vistas/vista_catalogo.fxml", event,this.modelo);
     }
-    
     
 }

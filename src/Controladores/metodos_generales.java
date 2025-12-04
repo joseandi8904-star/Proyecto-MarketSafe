@@ -82,6 +82,10 @@ public class metodos_generales {
             ((controlador_usuario) controlador).ModeloCompartido(modelo);
         }else if (controlador instanceof controlador_deseos) {
             ((controlador_deseos) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_carrito) {
+            ((controlador_carrito) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_historial) {
+            ((controlador_historial) controlador).ModeloCompartido(modelo);
         }
         
         Scene scene = new Scene(root);

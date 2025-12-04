@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="581.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.controlador_admin">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="577.0" style="-fx-background-color: #FAF7F3;">
+         <children>
+
+            <!-- Ruta navegación -->
+            <HBox layoutX="71.0" layoutY="14.0" prefHeight="21.0" prefWidth="359.0" spacing="30.0">
+               <children>
+                  <Label text="Administracion" textFill="#2e7d32">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+                  <Label text=">"><font><Font size="15.0" /></font></Label>
+                  <Label prefHeight="21.0" prefWidth="133.0" text="Crear producto" textFill="#2e7d32">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+               </children>
+            </HBox>
+
+            <!-- Botón crear -->
+            <Button fx:id="aggproducto" layoutX="583.0" layoutY="364.0" mnemonicParsing="false"
+                    onAction="#crear" prefHeight="37.0" prefWidth="113.0"
+                    style="-fx-background-color: #ed933a;" text="Crear Producto" textFill="WHITE">
+               <font><Font name="System Bold" size="12.0" /></font>
+            </Button>
+
+            <!-- Información básica -->
+            <AnchorPane layoutX="29.0" layoutY="40.0" prefHeight="363.0" prefWidth="361.0"
+                        style="-fx-border-color: #e19143; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Informacion basica">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="41.0" text="Nombre del producto" />
+                  <TextField fx:id="nombre" layoutX="14.0" layoutY="68.0" prefHeight="25.0" prefWidth="334.0" />
+                  <Label layoutX="13.0" layoutY="109.0" text="Descripcion" />
+                  <TextArea fx:id="desc" layoutX="13.0" layoutY="134.0" prefHeight="214.0" prefWidth="335.0" wrapText="true" />
+               </children>
+            </AnchorPane>
+
+            <!-- Precio -->
+            <AnchorPane layoutX="405.0" layoutY="237.0" prefHeight="165.0" prefWidth="152.0"
+                        style="-fx-border-color: #e19143; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Precio y stock">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="41.0" text="Precio del producto" />
+                  <TextField fx:id="cash" layoutX="14.0" layoutY="68.0" prefHeight="25.0" prefWidth="116.0" />
+                  <Label layoutX="14.0" layoutY="101.0" text="Cantidad disponible" />
+                  <TextField fx:id="stock" layoutX="14.0" layoutY="124.0" prefHeight="25.0" prefWidth="116.0" />
+               </children>
+            </AnchorPane>
+
+            <!-- Imagen del producto -->
+            <AnchorPane layoutX="405.0" layoutY="40.0" prefHeight="182.0" prefWidth="298.0"
+                        style="-fx-border-color: #e19143; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Imagen del producto">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+                  <Pane fx:id="zona" layoutX="15.0" layoutY="55.0" onDragDropped="#arrastrar" onDragOver="#over"
+                        prefHeight="114.0" prefWidth="269.0">
+                     <children>
+                        <ImageView fx:id="preview" fitHeight="107.0" fitWidth="118.0"
+                                   layoutX="80.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Productos/imagen.jpg" /></image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="ruta" editable="false" layoutX="15.0" layoutY="34.0"
+                             prefHeight="25.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
+
+            <!-- Categoría -->
+            <AnchorPane layoutX="570.0" layoutY="237.0" prefHeight="109.0" prefWidth="139.0"
+                        style="-fx-border-color: #e19143; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Categoria">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="40.0" text="Seleccione la categoria" />
+                  <ComboBox fx:id="categorias" editable="true" layoutX="14.0" layoutY="69.0"
+                            prefHeight="17.0" prefWidth="111.0"
+                            style="-fx-background-color: #ffffff;" />
+               </children>
+            </AnchorPane>
+
+         </children></AnchorPane>
+   </center>
+
+   <!-- Bottom -->
+   <bottom>
+      <Pane prefHeight="58.0" prefWidth="643.0" style="-fx-background-color: #F3E8DB;" BorderPane.alignment="CENTER" />
+   </bottom>
+
+   <!-- Top -->
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+
+            <AnchorPane prefHeight="96.0" prefWidth="627.0">
+               <children>
+
+                  <!-- FAVORITOS -->
+                  <Button layoutX="642.0" layoutY="22.0" mnemonicParsing="false" onAction="#abrir"
+                          style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/corazon.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+                  <!-- USUARIO -->
+                  <Button fx:id="Options" layoutX="465.0" layoutY="20.0" mnemonicParsing="false"
+                          onAction="#mostraropciones" prefHeight="15.0" prefWidth="119.0"
+                          style="-fx-background-color: transparent; -fx-background-radius: 25; -fx-border-color: #e19143; -fx-border-radius: 25;"
+                          text="   Usuario">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/usuario.png" /></image>
+                        </ImageView>
+                     </graphic>
+
+                     <contextMenu>
+                        <ContextMenu fx:id="H">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#abrirhistorial" text="Historial" />
+                              <MenuItem mnemonicParsing="false" text="Agregar producto" />
+                              <MenuItem mnemonicParsing="false" onAction="#salir" text="Cerrar sesion" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+
+                  </Button>
+
+                  <!-- CARRITO -->
+                  <Button layoutX="593.0" layoutY="19.0" mnemonicParsing="false" onAction="#abrircarrito"
+                          prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/carrito.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+                  <!-- LINEA NARANJA -->
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbe58" height="28.0"
+                             layoutX="-16.0" layoutY="68.0" stroke="#ffbe58" strokeType="INSIDE"
+                             width="747.0" />
+
+                  <!-- LOGO -->
+                  <Button fx:id="logo" layoutY="3.0" mnemonicParsing="false" onAction="#inicio"
+                          style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="72.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@../Imagenes/Iconos/icono.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+                  <!-- BARRA DE BÚSQUEDA -->
+                  <VBox layoutX="222.0" layoutY="-3.0" prefHeight="95.0" prefWidth="213.0">
+                     <children>
+                        <StackPane prefHeight="87.0" prefWidth="213.0">
+                           <children>
+                              <TextField fx:id="busqueda" prefHeight="25.0" prefWidth="233.0"
+                                         promptText="Buscar productos"
+                                         style="-fx-background-color: #fdf9f7; -fx-border-color: #e19143; -fx-border-width: 1.5; -fx-border-radius: 25; -fx-background-radius: 25; -fx-padding: 5;" />
+                              <Button style="-fx-background-color: transparent;" StackPane.alignment="CENTER_RIGHT">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image><Image url="@../Imagenes/Iconos/lupa.png" /></image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </StackPane>
+
+                        <ScrollPane fx:id="contenedor" fitToHeight="true" fitToWidth="true"
+                                    prefHeight="300.0" prefWidth="215.0"
+                                    style="-fx-managed: false;" visible="false">
+                           <content>
+                              <VBox fx:id="resultados" onKeyReleased="#buscarcatalogo"
+                                    prefHeight="200.0" prefWidth="212.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+
+               </children>
+            </AnchorPane>
+
+            <!-- Catálogo -->
+            <Button layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#catalogo"
+                    prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image><Image url="@../Imagenes/Iconos/catalogo.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

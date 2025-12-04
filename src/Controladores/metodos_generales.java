@@ -23,17 +23,22 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javax.swing.JOptionPane;
 
 /**
  *
+ * @author BENJAMIN
  */
 public class metodos_generales {
     
@@ -73,6 +78,8 @@ public class metodos_generales {
             ((controlador_login) controlador).ModeloCompartido(modelo);
         }else if (controlador instanceof controlador_signup) {
             ((controlador_signup) controlador).ModeloCompartido(modelo);
+        }else if (controlador instanceof controlador_usuario) {
+            ((controlador_usuario) controlador).ModeloCompartido(modelo);
         }
         
         Scene scene = new Scene(root);
@@ -260,7 +267,37 @@ public class metodos_generales {
     }
 
 }
+        
 
+    public void datosProducto(String direccion, producto prodSelected, metodos_generales modelo) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(direccion));
+        Parent root = loader.load();
+        controlador_infoproducto controller = loader.getController();
+        controller.ModeloCompartido(modelo, prodSelected);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+    public void datosCarrito(String direccion, producto prodSelected, metodos_generales modelo) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(direccion));
+        Parent root = loader.load();
+        controlador_infoproducto controller = loader.getController();
+        controller.ModeloCompartido(modelo, prodSelected);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+    
     public void agregarCarrito(producto p){
         if (BuscarId(p.idp)==null){
             Push(p);
@@ -802,5 +839,9 @@ public class metodos_generales {
 
     return lista;
 }
+
+
+
+
     
 }

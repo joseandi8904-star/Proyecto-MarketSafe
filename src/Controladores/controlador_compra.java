@@ -27,7 +27,6 @@ import javafx.stage.Window;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_compra implements Initializable {
 

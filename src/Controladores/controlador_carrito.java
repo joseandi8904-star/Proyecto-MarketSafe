@@ -33,7 +33,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_carrito implements Initializable {
 

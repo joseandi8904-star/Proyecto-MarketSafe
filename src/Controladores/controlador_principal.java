@@ -34,7 +34,6 @@ import javafx.stage.Window;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_principal implements Initializable {
 

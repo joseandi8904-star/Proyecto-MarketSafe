@@ -36,10 +36,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author BENJAMIN
- */
+
 public class metodos_generales {
     
     public metodos_generales(){ 

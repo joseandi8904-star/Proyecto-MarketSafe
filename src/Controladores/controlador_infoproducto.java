@@ -30,7 +30,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author BENJAMIN
  */
 public class controlador_infoproducto implements Initializable {
 
